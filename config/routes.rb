@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'apps/index'
+  root :to => "apps#index"
+  match "/auth/:provider/callback" => "sessions#create", via: :get
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
