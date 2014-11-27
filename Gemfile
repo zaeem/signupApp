@@ -45,9 +45,10 @@ gem 'spring',        group: :development
   # gem 'therubyracer'
 
   gem 'uglifier'
+  gem 'less-rails-bootstrap'
+  gem 'therubyracer'
   gem 'twitter-bootstrap-rails'
 gem 'activerecord-session_store'
-gem 'therubyracer'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'

@@ -38816,3 +38816,130 @@ Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-11-27 15:37:48 +0
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 15:37:48 +0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AppsController#index as HTML
+  [1m[35mActiveRecord::SessionStore::Session Load (1.0ms)[0m  SELECT  "sessions".* FROM "sessions"  WHERE "sessions"."session_id" = 'ed6fc487531b8a20b41e1239af6422ff'  ORDER BY "sessions"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 8  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered apps/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 159ms (Views: 122.4ms | ActiveRecord: 6.1ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/assets/apps.css?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started GET "/assets/apps.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:02 +0500
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8GBC+62ZvNTd7HBJ31izjW16eZJlZFcVxRmoVgm8Wmg="}
+  [1m[35mActiveRecord::SessionStore::Session Load (0.4ms)[0m  SELECT  "sessions".* FROM "sessions"  WHERE "sessions"."session_id" = 'ed6fc487531b8a20b41e1239af6422ff'  ORDER BY "sessions"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 8  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "sessions" WHERE "sessions"."id" = $1[0m  [["id", 52]]
+  [1m[35m (24.3ms)[0m  COMMIT
+  [1m[36mActiveRecord::SessionStore::Session Load (1.0ms)[0m  [1mSELECT  "sessions".* FROM "sessions"  WHERE "sessions"."session_id" = 'c956d8a6bf67756ac3882b39a3acd3a5'  ORDER BY "sessions"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 44ms (ActiveRecord: 26.8ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "sessions" ("created_at", "data", "session_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-27 13:04:05.333989"], ["data", "BAh7BkkiCmZsYXNoBjoGRVR7B0kiDGRpc2NhcmQGOwBUWwBJIgxmbGFzaGVz\nBjsAVHsGSSILbm90aWNlBjsARkkiHVNpZ25lZCBvdXQgc3VjY2Vzc2Z1bGx5\nLgY7AFQ=\n"], ["session_id", "0ee24ebe892ca41e2a8a523948d31c1e"], ["updated_at", "2014-11-27 13:04:05.333989"]]
+  [1m[35m (7.0ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+Processing by AppsController#index as HTML
+  [1m[36mActiveRecord::SessionStore::Session Load (0.6ms)[0m  [1mSELECT  "sessions".* FROM "sessions"  WHERE "sessions"."session_id" = '0ee24ebe892ca41e2a8a523948d31c1e'  ORDER BY "sessions"."id" ASC LIMIT 1[0m
+Completed 401 Unauthorized in 9ms
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "sessions" SET "data" = $1, "updated_at" = $2 WHERE "sessions"."id" = 53[0m  [["data", "BAh7B0kiCmZsYXNoBjoGRVR7B0kiDGRpc2NhcmQGOwBUWwZJIgtub3RpY2UG\nOwBGSSIMZmxhc2hlcwY7AFR7B0AKSSIdU2lnbmVkIG91dCBzdWNjZXNzZnVs\nbHkuBjsAVEkiCmFsZXJ0BjsARkkiNllvdSBuZWVkIHRvIHNpZ24gaW4gb3Ig\nc2lnbiB1cCBiZWZvcmUgY29udGludWluZy4GOwBUSSITdXNlcl9yZXR1cm5f\ndG8GOwBGIgYv\n"], ["updated_at", "2014-11-27 13:04:05.366091"]]
+  [1m[35m (8.6ms)[0m  COMMIT
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mActiveRecord::SessionStore::Session Load (0.4ms)[0m  [1mSELECT  "sessions".* FROM "sessions"  WHERE "sessions"."session_id" = '0ee24ebe892ca41e2a8a523948d31c1e'  ORDER BY "sessions"."id" ASC LIMIT 1[0m
+  Rendered devise/shared/_links.html.erb (2.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 83ms (Views: 79.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "sessions" SET "data" = $1, "updated_at" = $2 WHERE "sessions"."id" = 53[0m  [["data", "BAh7CEkiCmZsYXNoBjoGRVR7B0kiDGRpc2NhcmQGOwBUWwZJIgtub3RpY2UG\nOwBGSSIMZmxhc2hlcwY7AFR7B0kiC25vdGljZQY7AEZJIh1TaWduZWQgb3V0\nIHN1Y2Nlc3NmdWxseS4GOwBUSSIKYWxlcnQGOwBGSSI2WW91IG5lZWQgdG8g\nc2lnbiBpbiBvciBzaWduIHVwIGJlZm9yZSBjb250aW51aW5nLgY7AFRJIhN1\nc2VyX3JldHVybl90bwY7AEYiBi9JIhBfY3NyZl90b2tlbgY7AEZJIjF0TTRP\nOUpkUVJBdnpXYzVVR24wMGVvc0gwbXhvMU4zVDJmbE9NZWNEY2pBPQY7AEY=\n"], ["updated_at", "2014-11-27 13:04:05.510714"]]
+  [1m[35m (9.4ms)[0m  COMMIT
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+
+
+Started GET "/assets/apps.css?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+
+
+Started GET "/assets/apps.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-11-27 18:04:05 +0500
