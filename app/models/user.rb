@@ -7,10 +7,16 @@ class User < ActiveRecord::Base
   has_many :identities
 
 	def self.find_for_twitter_oauth(access_token, signed_in_resource=nil)
+		puts '===='*100
+		puts YAML::dump(access_token)
+		puts '===='*100
     user = User.where(:email => access_token.uid + "@twitter.com").first
     if user
       identity = user.identities.where(:provider => access_token.provider).first
 			if identity
+				if access_token.extra.raw_info.name != user.name
+					user.update_attributes(:name => access_token.extra.raw_info.name)
+				end
 			  return user
 			else
 				user1 = user.identities.create(name: access_token.extra.raw_info.name,
@@ -33,10 +39,16 @@ class User < ActiveRecord::Base
   end
 
   def self.connect_to_linkedin(access_token, signed_in_resource=nil)
+  	puts '===='*100
+		puts YAML::dump(access_token)
+		puts '===='*100
     user = User.where(:email => access_token.info.email).first
     if user
     	identity = user.identities.where(:provider => access_token.provider).first
 			if identity
+				if access_token.info.first_name+" "+access_token.info.last_name != user.name
+					user.update_attributes(:name => access_token.info.first_name+" "+access_token.info.last_name)
+				end
 			  return user
 			else
 				user1 = user.identities.create(name: access_token.info.first_name+" "+access_token.info.last_name,
@@ -59,10 +71,16 @@ class User < ActiveRecord::Base
   end  
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+  	puts '===='*100
+		puts YAML::dump(access_token)
+		puts '===='*100
     user = User.where(:email => access_token.info.email).first
     if user
     	identity = user.identities.where(:provider => access_token.provider).first
 			if identity
+				if access_token.extra.raw_info.name != user.name
+					user.update_attributes(:name => access_token.extra.raw_info.name)
+				end
 			  return user
 			else
 				user1 = user.identities.create(name: access_token.extra.raw_info.name,
@@ -85,12 +103,17 @@ class User < ActiveRecord::Base
   end
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
-
+  	puts '===='*100
+		puts YAML::dump(access_token)
+		puts '===='*100
 		data = access_token.info
 		user = User.where(:email => data["email"]).first
 		if user
 			identity = user.identities.where(:provider => access_token.provider).first
 			if identity
+				if data["name"] != user.name
+					user.update_attributes(:name => data["name"])
+				end
 			  return user
 			else
 				user1 = user.identities.create(name: data["name"],
