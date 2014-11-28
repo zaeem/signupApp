@@ -134,5 +134,38 @@ class User < ActiveRecord::Base
 	    return user
 		end
 	end 
+	
+	def self.find_for_github(access_token, signed_in_resource=nil)
+  	puts '===='*100
+		puts YAML::dump(access_token)
+		puts '===='*100
+		data = access_token.info
+		user = User.where(:email => data["email"]).first
+		if user
+			identity = user.identities.where(:provider => access_token.provider).first
+			if identity
+				if data["nickname"] != user.name
+					user.update_attributes(:name => data["nickname"])
+				end
+			  return user
+			else
+				user1 = user.identities.create(name: data["nickname"],
+	      	provider:access_token.provider,
+	    	)
+	    	return user
+			end
+		else
+	  	user = User.create(
+	      email: data["email"],
+	      name: data["nickname"],
+	      password: Devise.friendly_token[0,20],
+	    )
+
+	    user1 = user.identities.create(name: data["nickname"],
+	      provider:access_token.provider,
+	    )
+	    return user
+		end
+	end 
 
 end

@@ -26,7 +26,10 @@ Devise.setup do |config|
   config.omniauth :linkedin, "773pld6b1tcrt5", "DDCb8yR8LyeiDfQc", :scope => "r_basicprofile r_emailaddress r_fullprofile"
 
   require "omniauth-facebook"
-  config.omniauth :facebook, "295633283979304", "d0bf8476a22f2f76d46ede39f3698fef"
+  config.omniauth :facebook, "295633283979304", "d0bf8476a22f2f76d46ede39f3698fef" #, :scope => "public_profile, email, user_friends"
+
+  require "omniauth-github"
+  config.omniauth :github, "67a0fe11c7f183fca7fd", "0fafdda58906c5817e7dfe9086523b74a8d0b6d7", :scope => "repo, user"
 
   require 'omniauth-google-oauth2'
   config.omniauth :google_oauth2, "764121296905-v5so7kcje700o7qbljuvd86qimuua5hf.apps.googleusercontent.com", "xPMm3IHGkeVfbUMVvd9lGRC6", { access_type: "offline", approval_prompt: "" }
@@ -93,7 +96,7 @@ Devise.setup do |config|
   # requests for sign in and sign up, you need to get a new CSRF token
   # from the server. You can disable this option at your own risk.
   # config.clean_up_csrf_token_on_authentication = true
-
+  # link followed https://deepakrip007.wordpress.com/2013/11/01/twitter-and-linkedin-integration-using-devise-and-omniauth-in-rails-app/
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 10. If
   # using other encryptors, it sets how many times you want the password re-encrypted.
