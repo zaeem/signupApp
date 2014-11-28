@@ -48,9 +48,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def github
-    puts '===='*100
-		puts 'git'
-		puts '===='*100
     @user = User.find_for_github(request.env["omniauth.auth"], current_user)
     if @user.persisted?
     	flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Github"
