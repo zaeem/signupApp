@@ -23,7 +23,7 @@ Devise.setup do |config|
   config.omniauth :twitter, "HVR38aUydtciVmZJnMpkun4QT", "wlUAq5W8lgqD5w5WDR9RPAsYTVFgO4jyLcv46IzOmpUseIbpK1"
   
   require 'omniauth-linkedin'
-  config.omniauth :linkedin, "773pld6b1tcrt5", "DDCb8yR8LyeiDfQc"
+  config.omniauth :linkedin, "773pld6b1tcrt5", "DDCb8yR8LyeiDfQc", :scope => "r_basicprofile r_emailaddress r_fullprofile"
 
   require "omniauth-facebook"
   config.omniauth :facebook, "295633283979304", "d0bf8476a22f2f76d46ede39f3698fef"
