@@ -39,7 +39,7 @@
             </ul>
          </li> -->
         <% if user_signed_in? || @current_user.present? %>
-      			<li>Welcome <strong><%= current_user.name %></strong></li>
+      			<li>Welcome <strong><% if current_user.name != nil %><%= current_user.name %><% else %><%= current_user.email %><% end %></strong></li>
             <li><%= link_to "Sign out", destroy_user_session_path , :method => :delete%></li>
 		    <% end %>
 	   </ul>
@@ -48,9 +48,13 @@
 </nav>
 
 <div class="container">
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, class: "alert alert-info" do%>
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%end%>
+  <% end %>
   <%= yield %>
 </div>
-
-
 </body>
 </html>
